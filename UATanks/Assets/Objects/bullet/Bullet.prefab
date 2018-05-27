@@ -115,7 +115,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   Enemy: {fileID: 0}
   ShooterStats: {fileID: 0}
-  delay: 100000
+  delay: 5
   speed: 10
 --- !u!135 &135998171653614648
 SphereCollider:

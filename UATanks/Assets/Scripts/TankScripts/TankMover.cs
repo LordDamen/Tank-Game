@@ -10,6 +10,7 @@ public class TankMover : MonoBehaviour {
 	private InputController control;
 	// Use this for initialization
 	void Start () {
+		// just grabing required components
 		control = GetComponent<InputController> ();
 		tf = GetComponent<Transform> ();
 		data = GetComponent<TankData> ();
@@ -17,9 +18,11 @@ public class TankMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		// if the bool forward is true, which we check for in the input conroler is true then move forward
 		if (control.forward == true) {
 			transform.position += transform.forward * data.moveSpeed * Time.deltaTime;
 		}
+		// if the bool back is true, which we check for in the input conroler is true then move backward
 		if (control.back == true) {
 			transform.position -= transform.forward * data.ReverseSpeed * Time.deltaTime;
 		}

@@ -15,29 +15,36 @@ public class InputController : MonoBehaviour {
 	[HideInInspector] public bool back;
 	// Use this for initialization
 	void Start () {
+		// giving the gamemanager the idea of the player
 		GameManager.instance.player = this;
 		pawn = GetComponent<TankData> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		// booliean logic for if the character is moving forward
 		if (Input.GetKey (forwardKey)) {
 			forward = true;
 		} else {
+			// if it isnt then its false
 			forward = false;
 		}
+		// booliean logic for if the character is moving backward
 		if (Input.GetKey (backKey)) {
 			back = true;
 		} else {
+			// if it isnt then its false
 			back = false;
 		}
+		// if the numer is positve then you rotate clockwise
 		if (Input.GetKey (turnRightKey)) {
 			pawn.mover.Turn (-1);
 		}
+		// if the numer is positve then you rotate counterclockwise
 		if (Input.GetKey (turnLeftKey)) {
 			pawn.mover.Turn (1);
 		}
+		// if the spacebar is pressed then it will use the timer and if enough time has passed then they can shoot again.
 		if (Input.GetKeyDown (space)) {
 			pawn.shooter.Fire ();
 		}

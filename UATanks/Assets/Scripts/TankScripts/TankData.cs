@@ -13,7 +13,6 @@ public class TankData : MonoBehaviour {
 	public float delay;
 	public float score;
 	public float health;
-	public float EnemyDmg;
 	public float PlayerDmg;
 	public string bulletTag;
 
