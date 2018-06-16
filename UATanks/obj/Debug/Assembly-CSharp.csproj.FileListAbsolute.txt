@@ -79,3 +79,5 @@ C:\Users\benchout\Desktop\UATanks\Temp\bin\Debug\UnityEditor.iOS.Extensions.Xcod
 C:\Users\benchout\Desktop\UATanks\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
 C:\Users\benchout\Desktop\UATanks\obj\Debug\Assembly-CSharp.dll
 C:\Users\benchout\Desktop\UATanks\obj\Debug\Assembly-CSharp.pdb
+C:\Users\benchout\Documents\GitHub\Tank-Game\UATanks\obj\Debug\Assembly-CSharp.csprojResolveAssemblyReference.cache
+C:\Users\benchout\Documents\GitHub\Tank-Game\UATanks\obj\Debug\Assembly-CSharp.dll
