@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
-	[HideInInspector] public GameObject Sullet;
+	[HideInInspector] public GameObject bullet;
 	[HideInInspector] public TankData Player;
 	[HideInInspector] public TankData Enemy;
 	[HideInInspector] public TankData ShooterStats;
@@ -19,7 +19,7 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// setting the inital velocity
-		Sullet.GetComponent<Rigidbody> ().velocity = Sullet.transform.forward * speed;
+		bullet.GetComponent<Rigidbody> ().velocity = bullet.transform.forward * speed;
 
 
 	

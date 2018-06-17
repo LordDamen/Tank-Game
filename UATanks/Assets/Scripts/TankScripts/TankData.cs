@@ -13,9 +13,11 @@ public class TankData : MonoBehaviour {
 	public float delay;
 	public float score;
 	public float health;
+	public float retreatHealth;
+	public float maxHealth;
+	public float regenAmount; 
 	public float PlayerDmg;
 	public string bulletTag;
-
 
 	// Other Tank Components
 	[HideInInspector] public TankMover mover;
@@ -24,5 +26,6 @@ public class TankData : MonoBehaviour {
 	void Start() {
 		mover = GetComponent<TankMover> ();
 		shooter = GetComponent<TankShooter> ();
+		regenDelay = Time.time;
 	}
 }

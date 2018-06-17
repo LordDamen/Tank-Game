@@ -7,14 +7,12 @@ public class TankMover : MonoBehaviour {
 	[HideInInspector] public Transform tf;
 	private TankData data;
 	private InputController control;
-	private Rigidbody rb;
 	// Use this for initialization
 	void Start () {
 		// just grabing required components
 		control = GetComponent<InputController> ();
 		tf = GetComponent<Transform> ();
 		data = GetComponent<TankData> ();
-		rb = GetComponent<Rigidbody> ();
 	}
 	
 	// Update is called once per frame
@@ -35,7 +33,7 @@ public class TankMover : MonoBehaviour {
 		tf.Rotate(0, Mathf.Sign(direction) * data.turnSpeed * Time.deltaTime, 0);
 	}
 	public void Move(int Negative) {
-		transform.position += transform.forward * data.moveSpeed * Time.deltaTime* Negative; 
+		tf.position += tf.forward * data.moveSpeed * Time.deltaTime* Negative; 
 		//print ("yes");
 	}
 

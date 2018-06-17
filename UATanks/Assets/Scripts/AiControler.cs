@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class AiControler : MonoBehaviour {
 	public TankData pawn;
-	public List<Transform> waypoints;
+	public TankMover mover;
 	private int currentWaypoint = 0;
-	public float closeEnough = 1.0f;
 	public bool isPatroling;
 	public bool isAdvancingWaypoints = true;
 	public float avoidanceDistance;
-
-	public enum patrolStates { Flee,Waypoint,Chase,Patrol}
+	public float closeEnough = 1.0f;
+	public enum patrolStates { Flee,Waypoint,Chase,Patrol};
 	public patrolStates aiStates;
-
-	public enum AvoidStates {normal, TurnToAvoid,MoveToAvoid }
-	public AvoidStates avoidState;
-	public  float avoidDuration = 1.0f;
-	private float avoidStateTime;
-	public TankMover mover;
+	public Transform lastSeen;
+	private float fleeTimer;
+	public float fleeDelay;
 
 	// Use this for initialization
 	void Start () {
@@ -27,47 +23,49 @@ public class AiControler : MonoBehaviour {
 	}
 
 
+
 	protected void idle () {
 	// Do Nothing!
+
 	}
 	protected void Chase () {
 		// TODO: Create Chase function
-		Movetowards(GameManager.instance.player.pawn.mover.tf.position);
+		Movetowards(lastSeen);
 	}
 	 protected void Waypoint () {
-		// TODO: Create Waypoint function
-	//	if (  ) {
-			// Do nothing!
-	//	} else {
-			mover.Move(1);
+		//GameManager.instance.waypoints [currentWaypoint];
+
+		while ( Vector3.Distance(GameManager.instance.waypoints[currentWaypoint].transform.position,transform.position ) >= closeEnough) {
+			Movetowards(GameManager.instance.waypoints[currentWaypoint].transform);
+			if (Vector3.Distance (GameManager.instance.waypoints [currentWaypoint].transform.position, transform.position) < closeEnough) {
+				currentWaypoint++;
+				idle ();
+				if (currentWaypoint == 4) {
+					currentWaypoint = 0;
+
+				}
+			}
+		} 
+			
 		//}
 	}
 	 protected void Patrol () {
-		// TODO: Create Patrol function
+		// DO nothing this is innate inside of the vision script
+		mover.Move(1);
 
 	}
-	protected void Flee () {
-		// TODO: Create a Chase function
-	}
-	protected void Movetowards(Vector3 target) {
-		if (avoidState == AvoidStates.normal) {
-			
-		}
-	}
+
 		
 	void Update () {
-		if (aiStates == patrolStates.Waypoint) {
-			Waypoint ();
-		} else if (aiStates == patrolStates.Chase) {
-			Chase ();
+		if (pawn.health <= pawn.retreatHealth) {
+			aiStates = patrolStates.Flee;
 		}
 	}
 
-
-
-
-
-
+	protected void Movetowards(Transform target) {
+		transform.LookAt (target);
+		mover.Move (1);
+	}
 
 
 
@@ -81,7 +79,7 @@ public class AiControler : MonoBehaviour {
 	[SerializeField] private float HalfConeSize = 45f;
 	// vision Script
 	//step one: determine with a sphere collider if things are around us
-	void OnTriggerStay( Collider Other) {
+	 void OnTriggerStay( Collider Other) {
 		Vector3 MyPosition = transform.position;
 		Vector3 MyVector = transform.forward;
 		Vector3 TheirPosition = Other.transform.position;
@@ -101,17 +99,73 @@ public class AiControler : MonoBehaviour {
 		float sqrAngle = Mathf.Rad2Deg * Mathf.Acos (dotProd / mag);
 		bool IsInFront = sqrAngle < HalfConeSize;
 		if (Other.gameObject.tag == "Player") {
-			print(sqrAngle + " " + Other.gameObject.name);
+			//print(sqrAngle + " " + Other.gameObject.name);
+
+
 		}
 				//step 3: is there anything infront of the object
 		Debug.DrawLine(MyPosition, TheirPosition, IsInFront ? Color.green :Color.red);
-		if (IsInFront && Other.gameObject.tag == "Player") {
-		// make sure that the layermask can pnly hit what we want
-			int mask = 1 << LayerMask.NameToLayer("Env");
+
+		if (IsInFront) {
+			
+			// make sure that the layermask can pnly hit what we want
+			int mask = 1 << LayerMask.NameToLayer ("Env");
+			if (Physics.Linecast (MyPosition, TheirPosition, mask)) {
+				//aiStates = patrolStates.Patrol;
+			}
 			if (!Physics.Linecast (MyPosition, TheirPosition, mask)) {
-				print ("Sensing Something " + Other.gameObject.name);
-				Chase ();
+				//print ("Sensing Something " + Other.gameObject.name);
+				lastSeen = Other.transform;
+				//aiStates = patrolStates.Chase;
+			}
+		} else {
+			if (sqrAngle <= 90 && isNegative) {
+				mover.Turn (-1);
+				//print ("Test NonNEgatice");
+			}
+			if (sqrAngle <= 90 && !isNegative) {
+				mover.Turn (1);
+				//print ("Test NEgatice");
+				//print (sqrAngle + " " + Other.gameObject.name);
+			}
+			//redundency
+			if (sqrAngle > 90 && isNegative) {
+				mover.Turn (-1);
+			}
+			if (sqrAngle > 90 && !isNegative) {
+				mover.Turn (1);
 			}
 		}
 	}
+
+
+	void Flee () {
+		if (Time.time >= fleeTimer) {
+			// adding time to make sure timer is happening
+			fleeTimer = Time.time + fleeDelay;
+			if (pawn.health <= pawn.maxHealth) {
+				pawn.health += pawn.regenAmount;
+					
+			} else {
+				aiStates = patrolStates.Patrol;
+			}
+
+		}
+		Transform behindYou;
+		behindYou = this.transform.position.x;
+		behindYou.transform.position.x--;
+		transform.LookAt(behindYou);
+		mover.Move (1);
+	}
+
+
+
+
+
+
+
+
+
+
+
 }
