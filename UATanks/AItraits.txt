@@ -1,0 +1,4 @@
+Flee: The enemy will constantly avoid the player till they heal to full Hp
+Chase: will constantly follow after the player to seek and destroy the player
+Waypoint: this ai will go waypoint to waypoint hoping to see the player and move to chase
+Patrol: This ai is just one that moves within world constraints and simply avoids obsticles until it sees the player
