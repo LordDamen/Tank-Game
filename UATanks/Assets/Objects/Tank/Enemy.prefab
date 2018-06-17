@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 114367305315163920}
   - component: {fileID: 114800605042344068}
   - component: {fileID: 65821719281420816}
+  - component: {fileID: 65183538699895928}
   - component: {fileID: 54282033784510726}
   - component: {fileID: 114934247685387480}
   - component: {fileID: 135768536037340668}
@@ -168,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1655936134097830}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.005, y: 0.268, z: 0.94}
+  m_LocalPosition: {x: -0.005, y: 0.268, z: 1.113}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4536417103552130}
@@ -224,7 +225,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1308392411857362}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13, y: -0.94, z: -15.32}
+  m_LocalPosition: {x: 2.958, y: -0.532, z: 0.101}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4014650384566302}
@@ -463,8 +464,20 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 92
   m_CollisionDetection: 0
+--- !u!65 &65183538699895928
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1308392411857362}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.3739586, y: 0.43835783, z: 0.5243988}
+  m_Center: {x: -0.028177261, y: 0.28082108, z: 1.0611343}
 --- !u!65 &65821719281420816
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -475,8 +488,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.75299096, z: 1}
-  m_Center: {x: 0, y: 0.12350452, z: 0}
+  m_Size: {x: 1, y: 0.75299096, z: 1.0687637}
+  m_Center: {x: 0, y: 0.12350452, z: 0.034381866}
 --- !u!114 &114367305315163920
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -489,8 +502,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1661933717456304, guid: 0f350ff2cef06f4429be0691b551558b, type: 2}
-  x: {fileID: 4014650384566302}
-  NewBullet: {fileID: 1661933717456304, guid: 0f350ff2cef06f4429be0691b551558b, type: 2}
+  firePoint: {fileID: 4014650384566302}
+  NewBullet: {fileID: 0}
 --- !u!114 &114651433907832568
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -502,17 +515,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386e95c93f5c9d948b439329e9eeb5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.1
+  moveSpeed: 2
   ReverseSpeed: 1
   turnSpeed: 150
   delay: 4
   score: 0
-  health: 50
+  health: 70
   retreatHealth: 20
+  maxHealth: 80
+  regenAmount: 10
   PlayerDmg: 10
   bulletTag: Enemy
-  mover: {fileID: 0}
-  shooter: {fileID: 0}
+  fleeDistance: 0.001
+  isAi: 1
+  mover: {fileID: 114800605042344068}
+  shooter: {fileID: 114367305315163920}
 --- !u!114 &114800605042344068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -524,7 +541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6afd1b28b27dff488838aa2f0a3a8ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tf: {fileID: 0}
+  tf: {fileID: 4536417103552130}
 --- !u!114 &114934247685387480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -536,14 +553,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb28952a9651a04449353e84c792a93d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pawn: {fileID: 0}
-  isPatroling: 0
-  isAdvancingWaypoints: 1
-  avoidanceDistance: 0
   closeEnough: 1
   aiStates: 2
-  mover: {fileID: 0}
   lastSeen: {fileID: 0}
+  fleeDelay: 0
   HalfConeSize: 45
 --- !u!135 &135768536037340668
 SphereCollider:

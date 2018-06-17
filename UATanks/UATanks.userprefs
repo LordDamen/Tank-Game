@@ -1,10 +1,13 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\AiControler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TankScripts\Bullet.cs">
     <Files>
-      <File FileName="Assets\Scripts\TankScripts\TankData.cs" Line="17" Column="25" />
-      <File FileName="Assets\Scripts\TankScripts\TankMover.cs" Line="32" Column="35" />
-      <File FileName="Assets\Scripts\AiControler.cs" Line="154" Column="23" />
+      <File FileName="Assets\Scripts\TankScripts\TankData.cs" Line="21" Column="35" />
+      <File FileName="Assets\Scripts\TankScripts\TankMover.cs" Line="28" Column="2" />
+      <File FileName="Assets\Scripts\AiControler.cs" Line="32" Column="4" />
+      <File FileName="Assets\Scripts\TankScripts\TankShooter.cs" Line="38" Column="1" />
+      <File FileName="Assets\Scripts\InputController.cs" Line="31" Column="25" />
+      <File FileName="Assets\Scripts\TankScripts\Bullet.cs" Line="18" Column="41" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -6,7 +6,7 @@ public class TankShooter : MonoBehaviour {
 	public GameObject Bullet;
 	private TankData data;
 	private float Timer;
-	public Transform x;
+	public Transform firePoint;
 	public GameObject NewBullet;
 	//public float delay;
 	// Use this for initialization
@@ -27,12 +27,11 @@ public class TankShooter : MonoBehaviour {
 		if (Time.time >= Timer) {
 			// adding time to make sure timer is happening
 			Timer = Time.time + data.delay;
-			// create the bullet
-			NewBullet = Instantiate (Bullet, x.position,x.rotation);
-			// makeing sure we know who fired it
-			NewBullet.tag = data.bulletTag;
-
-
+				// create the bullet
+				//Quaternion targetRotation = Quaternion.Euler(0,Random.Range(0,5),0);
+				NewBullet = Instantiate (Bullet, firePoint.position, firePoint.rotation);
+				print ("shoot"); 
+				NewBullet.tag = data.bulletTag;
 		}
 	}
 }

@@ -3,23 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
-	[HideInInspector] public GameObject bullet;
-	[HideInInspector] public TankData Player;
-	[HideInInspector] public TankData Enemy;
+	public TankData Player;
+	public TankData Enemy;
 	[HideInInspector] public TankData ShooterStats;
 	public float delay;
 	public float speed;
+	public Rigidbody rb;
 	[HideInInspector] private bool JustFired;
 	// Use this for initialization
 	void Start () {
 		Destroy (gameObject, delay);
+		rb = GetComponent<Rigidbody> ();
 		JustFired = true;
+		rb.AddForce(transform.forward * speed);
+		if (gameObject.tag == "Enemy") {
+			rb.AddForce (transform.right * Random.Range (-20f, 1f));
+
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		// setting the inital velocity
-		bullet.GetComponent<Rigidbody> ().velocity = bullet.transform.forward * speed;
+
 
 
 	
@@ -51,9 +57,9 @@ public class Bullet : MonoBehaviour {
 		Destroy (gameObject);
 	}
 	// sets the damage on exit of the trigger box
-	void OnTriggerExit (Collider triger) {
+	void OnTriggerExit (Collider other) {
 		if (JustFired == true) {
-			ShooterStats = triger.gameObject.GetComponent<TankData> ();
+			ShooterStats = other.gameObject.GetComponent<TankData> ();
 			JustFired = false;
 		}
 	}

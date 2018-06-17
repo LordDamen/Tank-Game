@@ -5,7 +5,6 @@ using UnityEngine;
 public class InputController : MonoBehaviour {
 
 	public TankData pawn;
-
 	public KeyCode forwardKey = KeyCode.W;
 	public KeyCode turnRightKey = KeyCode.A;
 	public KeyCode turnLeftKey = KeyCode.D;
@@ -13,6 +12,7 @@ public class InputController : MonoBehaviour {
 	public KeyCode space = KeyCode.Space;
 	[HideInInspector] public bool forward;
 	[HideInInspector] public bool back;
+
 	// Use this for initialization
 	void Start () {
 		// giving the gamemanager the idea of the player
@@ -24,18 +24,12 @@ public class InputController : MonoBehaviour {
 	void Update () {
 		// booliean logic for if the character is moving forward
 		if (Input.GetKey (forwardKey)) {
-			forward = true;
-		} else {
-			// if it isnt then its false
-			forward = false;
+			pawn.mover.Move (1);
 		}
 		// booliean logic for if the character is moving backward
 		if (Input.GetKey (backKey)) {
-			back = true;
-		} else {
-			// if it isnt then its false
-			back = false;
-		}
+			pawn.mover.Move (-1);
+		} 
 		// if the numer is positve then you rotate clockwise
 		if (Input.GetKey (turnRightKey)) {
 			pawn.mover.Turn (-1);

@@ -576,7 +576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 1661933717456304, guid: 0f350ff2cef06f4429be0691b551558b, type: 2}
-  x: {fileID: 4210917941324702}
+  firePoint: {fileID: 4210917941324702}
   NewBullet: {fileID: 1661933717456304, guid: 0f350ff2cef06f4429be0691b551558b, type: 2}
 --- !u!114 &114809161395292876
 MonoBehaviour:
@@ -626,8 +626,13 @@ MonoBehaviour:
   delay: 2
   score: 0
   health: 10
+  retreatHealth: 0
+  maxHealth: 0
+  regenAmount: 0
   PlayerDmg: 10
   bulletTag: Player
+  fleeDistance: 1
+  isAi: 0
   mover: {fileID: 0}
   shooter: {fileID: 0}
 --- !u!124 &124724634786298500
