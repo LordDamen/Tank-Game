@@ -14,19 +14,15 @@ public class AiControler : MonoBehaviour {
 	private float fleeTimer;
 	public float fleeDelay;
 	private float fireDelay;
-
-
 	// Use this for initialization
 	void Start () {
+		// get requried compoents
 		mover = GetComponent<TankMover> ();
 		pawn = GetComponent<TankData> ();
 		shoot = GetComponent<TankShooter> ();
-
 	}
 	void Update () {
-		//if (this.pawn.health <= this.pawn.retreatHealth) {
-		//	aiStates = patrolStates.Flee;
-		//}
+		//if the state is one then call that function
 		if (aiStates == patrolStates.Flee) {
 			Flee ();
 		}
@@ -40,69 +36,55 @@ public class AiControler : MonoBehaviour {
 			Patrol ();
 		}
 	}
-
-
-	protected void idle () {
-	// Do Nothing!
-
-	}
 	protected void Chase () {
-		// TODO: Create Chase function
+		//the Enemy will move towards the last seen location of the player
 		Movetowards(lastSeen);
+		//He will also fire
 		shoot.Fire ();
 	}
 	 protected void Waypoint () {
-		//GameManager.instance.waypoints [currentWaypoint];
-
+		//if the waypoint is close enough then turn and tick up the next waypoint
 		if ( Vector3.Distance(GameManager.instance.waypoints[currentWaypoint].transform.position,transform.position ) >= closeEnough) {
+			//this is the turn inside of the mover
 			mover.Turn (1);
+			//this is setting where we are pointed at to the next waypoint
 			Movetowards(GameManager.instance.waypoints[currentWaypoint].transform);
+			//this checks if it is close enough and then ticks the waypoint up
 			if (Vector3.Distance (GameManager.instance.waypoints [currentWaypoint].transform.position, transform.position) < closeEnough) {
 				currentWaypoint++;
-				idle ();
+				// if the waypoint is at the end set it back to the beginning
 				if (currentWaypoint == 4) {
 					currentWaypoint = 0;
-
 				}
 			}
 		} 
-			
-		//}
 	}
 	 protected void Patrol () {
 		// DO nothing this is innate inside of the vision script
 		mover.Move(1);
-
 	}
-
-		
-
-
+	// this is the main movement command for the enemy
 	protected void Movetowards(Transform target) {
+		//we just look at the target then move forward
 		transform.LookAt (target);
+		// this just moves it forward after looking at the target
 		mover.Move (1);
 	}
-
-
-
-
-
-
+	//this is the visision script below, it took time and effort to make it work correctly
 	[SerializeField] private float HalfConeSize = 45f;
 	// vision Script
 	//step one: determine with a sphere collider if things are around us
 	 void OnTriggerStay( Collider Other) {
+		// these are the necessary locations for vision
 		Vector3 MyPosition = transform.position;
 		Vector3 MyVector = transform.forward;
 		Vector3 TheirPosition = Other.transform.position;
 		Vector3 ThierVector = TheirPosition - MyPosition;
-
 		//step 2: is the object in front of this enemy
-
+		//this part just checks for ifsomething is in front of it
 		float mag = Vector3.SqrMagnitude (MyVector) * Vector3.SqrMagnitude (ThierVector);
 		//prevent devide by zero
 		if (mag == 0f) {return;}
-
 		float dotProd = Vector3.Dot (MyVector, ThierVector);
 		bool isNegative = dotProd < 0f;
 		dotProd = dotProd * dotProd;
@@ -111,35 +93,28 @@ public class AiControler : MonoBehaviour {
 		float sqrAngle = Mathf.Rad2Deg * Mathf.Acos (dotProd / mag);
 		bool IsInFront = sqrAngle < HalfConeSize;
 		if (Other.gameObject.tag == "Player") {
-			//print(sqrAngle + " " + Other.gameObject.name);
-
 		}
-				//step 3: is there anything infront of the object
+		//step 3: is there anything infront of the object
 		Debug.DrawLine(MyPosition, TheirPosition, IsInFront ? Color.green :Color.red);
-
 		if (IsInFront) {
-			
 			// make sure that the layermask can pnly hit what we want
 			int mask = 1 << LayerMask.NameToLayer ("Env");
-			if (Physics.Linecast (MyPosition, TheirPosition, mask)) {
-				//aiStates = patrolStates.Patrol;
+			if (Physics.Linecast (MyPosition, TheirPosition, mask)){
 			}
 			if (!Physics.Linecast (MyPosition, TheirPosition, mask)) {
 				if (Other.gameObject.tag == "Player") {
-				//print ("Sensing Something " + Other.gameObject.name);
-				lastSeen = Other.transform;
-				//aiStates = patrolStates.Chase;
+					//this sets the players last seen location into a variable that the enemy can seek for
+					lastSeen = Other.transform;
+					aiStates = patrolStates.Chase;
 				}
 			}
 		} else {
+			// this is how the tanks move
 			if (sqrAngle <= 90 && isNegative) {
 				mover.Turn (-1);
-				//print ("Test NonNEgatice");
 			}
 			if (sqrAngle <= 90 && !isNegative) {
 				mover.Turn (1);
-				//print ("Test NEgatice");
-				//print (sqrAngle + " " + Other.gameObject.name);
 			}
 			//redundency
 			if (sqrAngle > 90 && isNegative) {
@@ -150,22 +125,15 @@ public class AiControler : MonoBehaviour {
 			}
 		}
 	}
-
-
 	void Flee () {
 		if (Time.time >= fleeTimer) {
 			// adding time to make sure timer is happening
 			fleeTimer = Time.time + fleeDelay;
-			/*if (pawn.health <= pawn.maxHealth) {
-				pawn.health += pawn.regenAmount;
-					
 			}
 			else {
 				aiStates = patrolStates.Patrol;
 			}
 
-			*///mover.Turn(1);
-		}
 		// this is what the vector is from the player to the target
 		Vector3 vectorToTarget = lastSeen.position - transform.position;
 		// now we need to make it negative to move AWAY from the player
@@ -176,21 +144,9 @@ public class AiControler : MonoBehaviour {
 		vectorAwayFromTarget *= pawn.fleeDistance;
 		// now we can use the new vectors to find the space we want to move to, this will give a point away from the player
 		Vector3 fleePosition = vectorAwayFromTarget + transform.position;
-		//now to make them move
-		//MovetowardsWIthVector(fleePosition);
-		//Movetowards(fleePosition);
-		//transform.Translate(fleePosition);
+		// this is just a placeholder because i coudln't figure it out
+		//TODO fix the flee script
 		mover.Move (-1);
 	}
-
-
-
-
-
-
-
-
-
-
-
 }
+

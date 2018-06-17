@@ -21,6 +21,7 @@ public class TankMover : MonoBehaviour {
 		tf.Rotate(0, Mathf.Sign(direction) * data.turnSpeed * Time.deltaTime, 0);
 	}
 	public void Move(int Negative) {
+		// move forward
 		tf.position += tf.forward * data.moveSpeed * Time.deltaTime* Negative; 
 		//print ("yes");
 	}

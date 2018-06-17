@@ -59,6 +59,7 @@ public class Bullet : MonoBehaviour {
 	// sets the damage on exit of the trigger box
 	void OnTriggerExit (Collider other) {
 		if (JustFired == true) {
+			//checks who fired it
 			ShooterStats = other.gameObject.GetComponent<TankData> ();
 			JustFired = false;
 		}
