@@ -56,11 +56,13 @@
      <Compile Include="Assets\Scripts\InputController.cs" />
      <Compile Include="Assets\Scripts\PlayArea.cs" />
      <Compile Include="Assets\Scripts\PowerUpManager.cs" />
+     <Compile Include="Assets\Scripts\PowerUpManager1.cs" />
      <Compile Include="Assets\Scripts\Spawn.cs" />
      <Compile Include="Assets\Scripts\TankScripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\TankScripts\TankData.cs" />
      <Compile Include="Assets\Scripts\TankScripts\TankMover.cs" />
      <Compile Include="Assets\Scripts\TankScripts\TankShooter.cs" />
+     <Compile Include="Assets\Scripts\TileManager.cs" />
  <Reference Include="Facebook.Unity.Settings">
  <HintPath>C:/Users/benchout/Documents/GitHub/Tank-Game/UATanks/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>

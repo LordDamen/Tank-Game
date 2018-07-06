@@ -55,6 +55,7 @@ public class AiControler : MonoBehaviour {
 	}
 	protected void Chase () {
 		//the Enemy will move towards the last seen location of the player
+		mover.Move (1);
 		Movetowards(lastSeen);
 		if (Vector3.Distance (transform.position, lastSeen.position) <= closeEnough) {
 			patrolTimer = Time.time + pawn.patrolDelay;
@@ -88,7 +89,7 @@ public class AiControler : MonoBehaviour {
 	// this is the main movement command for the enemy
 	protected void Movetowards(Transform target) {
 		//we just look at the target then move forward
-		transform.LookAt (target);
+		transform.LookAt (target.position);
 		// this just moves it forward after looking at the target
 		mover.Move (1);
 	}
@@ -157,22 +158,22 @@ public class AiControler : MonoBehaviour {
 					lastSeen = Other.transform;
 					aiStates = patrolStates.Shoot;
 				}
-			}
-		} else {
-			// this is how the tanks move
-			if (sqrAngle <= 90 && isNegative) {
-				mover.Turn (-1);
-			}
-			if (sqrAngle <= 90 && !isNegative) {
-				mover.Turn (1);
-			}
-			//redundency
-			if (sqrAngle > 90 && isNegative) {
-				mover.Turn (-1);
-			}
-			if (sqrAngle > 90 && !isNegative) {
-				mover.Turn (1);
-			}
+			}else {
+				// this is how the tanks move
+				if (sqrAngle <= 90 && isNegative) {
+					mover.Turn (-1);
+				}
+				if (sqrAngle <= 90 && !isNegative) {
+					mover.Turn (1);
+				}
+				//redundency
+				if (sqrAngle > 90 && isNegative) {
+					mover.Turn (-1);
+				}
+				if (sqrAngle > 90 && !isNegative) {
+					mover.Turn (1);
+				}
+			} 
 		}
 	}
 

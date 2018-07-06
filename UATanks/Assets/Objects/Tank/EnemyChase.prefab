@@ -279,7 +279,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1660718663007374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.21259, y: -1.1589999, z: -15.7998905}
+  m_LocalPosition: {x: -1.744866, y: 5.840525e-17, z: -42.09102}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4329720014138572}
@@ -525,6 +525,7 @@ MonoBehaviour:
   PlayerDmg: 10
   bulletTag: Enemy
   fleeDistance: 0.001
+  patrolDelay: 0
   mover: {fileID: 114568440726790726}
   shooter: {fileID: 114709820218422254}
 --- !u!114 &114593973820962468
@@ -542,6 +543,7 @@ MonoBehaviour:
   aiStates: 2
   lastSeen: {fileID: 0}
   fleeDelay: 0
+  patrolTimer: 0
   HalfConeSize: 45
 --- !u!114 &114709820218422254
 MonoBehaviour:

@@ -169,7 +169,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1631814776895712}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3117514, y: -1.1589999, z: -9.2598}
+  m_LocalPosition: {x: 5.612105, y: 6.443828e-17, z: -42.906128}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4325856694081108}
@@ -464,7 +464,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 92
+  m_Constraints: 88
   m_CollisionDetection: 0
 --- !u!65 &65833397660247886
 BoxCollider:
@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386e95c93f5c9d948b439329e9eeb5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 2
+  moveSpeed: 20
   ReverseSpeed: 1
   turnSpeed: 150
   delay: 4
@@ -513,6 +513,7 @@ MonoBehaviour:
   PlayerDmg: 10
   bulletTag: Enemy
   fleeDistance: 0.001
+  patrolDelay: 10
   mover: {fileID: 114981182057017776}
   shooter: {fileID: 114586700396496684}
 --- !u!114 &114586700396496684
@@ -544,6 +545,7 @@ MonoBehaviour:
   aiStates: 3
   lastSeen: {fileID: 0}
   fleeDelay: 0
+  patrolTimer: 0
   HalfConeSize: 45
 --- !u!114 &114981182057017776
 MonoBehaviour:

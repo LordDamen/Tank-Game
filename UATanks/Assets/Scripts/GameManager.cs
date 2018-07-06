@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	// this is the player instance
 	public InputController player;
 	public GameObject[] waypoints;
+	public TileManager ListOfTiles;
 	// Use this for initialization
 	// check if it exitsts if it does then destroy and this is the new one
 	void Awake () {
