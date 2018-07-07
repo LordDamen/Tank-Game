@@ -51,4 +51,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17375575c1804fa43a796be2a57d02b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 1308392411857362, guid: 60b656472e87bd04185d9e67b06cbead, type: 2}
+  EnemyToSpawn:
+  - {fileID: 1368497315247352, guid: 4f89a930a9df43f47b068c07a6e61c9a, type: 2}
+  - {fileID: 1660718663007374, guid: 11d8b7c9dafd7294784b730706065204, type: 2}
+  - {fileID: 1731445413412948, guid: c4df4e918d249fe4491fb5ab4eb1ce78, type: 2}
+  - {fileID: 1631814776895712, guid: 9225ee13c9bcf4141aa26d016e9dbb2c, type: 2}
+  objectToSpawn: {fileID: 0}
+  spawnedObject: {fileID: 0}
+  timeBetweenSpawns: 10
+  rand: 0

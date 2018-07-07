@@ -51,4 +51,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17375575c1804fa43a796be2a57d02b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 1039725309388934, guid: b085b7d76e910fb42bbfccc4d8468694, type: 2}
+  EnemyToSpawn:
+  - {fileID: 1039725309388934, guid: b085b7d76e910fb42bbfccc4d8468694, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  objectToSpawn: {fileID: 0}
+  spawnedObject: {fileID: 0}
+  timeBetweenSpawns: 0
+  rand: 0
