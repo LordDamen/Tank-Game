@@ -286,10 +286,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AiControler.cs" />
+    <Compile Include="Assets\Scripts\Env\PlayArea.cs" />
+    <Compile Include="Assets\Scripts\Env\PowerUpManager.cs" />
+    <Compile Include="Assets\Scripts\Env\Spawn.cs" />
+    <Compile Include="Assets\Scripts\Env\TileManager.cs" />
+    <Compile Include="Assets\Scripts\Env\Walls.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
-    <Compile Include="Assets\Scripts\PlayArea.cs" />
-    <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Scripts\TankScripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\TankScripts\TankData.cs" />
     <Compile Include="Assets\Scripts\TankScripts\TankMover.cs" />

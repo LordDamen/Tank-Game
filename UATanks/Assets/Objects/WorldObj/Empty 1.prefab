@@ -1085,7 +1085,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1744505473011174}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.406766, y: 52.887695, z: 43.580215}
   m_LocalScale: {x: 3, y: 1, z: 3}
   m_Children:
   - {fileID: 4719955043923616}
@@ -3482,8 +3482,8 @@ MonoBehaviour:
   powerUps:
   - {fileID: 1581826913277856, guid: 39cca01326bb1b2418a4aa739eb8227a, type: 2}
   - {fileID: 1247830740334678, guid: c8974a20f40d2f3418ec4b24c68ecc3f, type: 2}
-  - {fileID: 1606288150859480, guid: 8685a70a4ba578b48bbabc0ac852424e, type: 2}
-  timeBetweenSpawns: 10
+  - {fileID: 0}
+  powerupRespawnTImer: 10
   thePower: {fileID: 0}
   objectToSpawn: {fileID: 0}
   rand: 0

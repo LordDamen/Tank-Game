@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -144,9 +144,9 @@ MonoBehaviour:
   ThePlayer: {fileID: 1039725309388934, guid: b085b7d76e910fb42bbfccc4d8468694, type: 2}
   waypoints: []
   Tm: {fileID: 1979962558}
-  seed: 1202021
+  seed: 10011
   designerSeed: 0
-  seedOfTheDay: 1
+  seedOfTheDay: 0
 --- !u!4 &983924626
 Transform:
   m_ObjectHideFlags: 0
