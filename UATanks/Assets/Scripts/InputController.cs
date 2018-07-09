@@ -39,7 +39,7 @@ public class InputController : MonoBehaviour {
 			pawn.mover.Turn (1);
 		}
 		// if the spacebar is pressed then it will use the timer and if enough time has passed then they can shoot again.
-		if (Input.GetKeyDown (space)) {
+		if (Input.GetKey (space)) {
 			pawn.shooter.Fire ();
 		}
 	}

@@ -16,6 +16,7 @@ public class AiControler : MonoBehaviour {
 	private float fireDelay;
 	public float patrolTimer;
 	int PlayerMask;
+	public List<GameObject> Waypoints;
 	// Use this for initialization
 	void Start () {
 		// get requried compoents
@@ -64,13 +65,13 @@ public class AiControler : MonoBehaviour {
 	}
 	 protected void Waypoint () {
 		//if the waypoint is close enough then turn and tick up the next waypoint
-		if ( Vector3.Distance(GameManager.instance.waypoints[currentWaypoint].transform.position,transform.position ) >= closeEnough) {
+		if ( Vector3.Distance(Waypoints[currentWaypoint].transform.position,transform.position ) >= closeEnough) {
 			//this is the turn inside of the mover
 			mover.Turn (1);
 			//this is setting where we are pointed at to the next waypoint
-			Movetowards(GameManager.instance.waypoints[currentWaypoint].transform);
+			Movetowards(Waypoints[currentWaypoint].transform);
 			//this checks if it is close enough and then ticks the waypoint up
-			if (Vector3.Distance (GameManager.instance.waypoints [currentWaypoint].transform.position, transform.position) < closeEnough) {
+			if (Vector3.Distance (Waypoints[currentWaypoint].transform.position, transform.position) < closeEnough) {
 				currentWaypoint++;
 				// if the waypoint is at the end set it back to the beginning
 				if (currentWaypoint == 4) {

@@ -23,7 +23,7 @@ public class TankMover : MonoBehaviour {
 	public void Move(int Negative) {
 		// move forward
 		tf.position += tf.forward * data.moveSpeed * Time.deltaTime* Negative; 
-		print ("yes");
+		//print ("yes");
 	}
 
 }

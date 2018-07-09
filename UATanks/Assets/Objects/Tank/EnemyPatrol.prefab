@@ -501,7 +501,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386e95c93f5c9d948b439329e9eeb5fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 20
+  moveSpeed: 2
   ReverseSpeed: 1
   turnSpeed: 150
   delay: 4
@@ -546,6 +546,7 @@ MonoBehaviour:
   lastSeen: {fileID: 0}
   fleeDelay: 0
   patrolTimer: 0
+  Waypoints: []
   HalfConeSize: 45
 --- !u!114 &114981182057017776
 MonoBehaviour:

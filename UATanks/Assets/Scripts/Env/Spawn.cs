@@ -11,9 +11,15 @@ public class Spawn : MonoBehaviour {
 	public float timeBetweenSpawns;
 	private float spawnCountdown;
 	public int rand;
+	public List<GameObject> waypoint;
 	// Use this for initialization
 	void Start () {
 		tf = GetComponent<Transform>();
+		if (GameManager.instance.seedOfTheDay == true) {
+			Random.InitState (GameManager.instance.seed);
+		} else if (GameManager.instance.designerSeed == true) {
+			Random.InitState (GameManager.instance.seed);
+		}
 		rand = Random.Range (0, EnemyToSpawn.Count);
 		spawnCountdown = timeBetweenSpawns;
 	}
@@ -30,7 +36,7 @@ public class Spawn : MonoBehaviour {
 				// Spawn an object
 
 				spawnedObject = Instantiate(EnemyToSpawn[rand], tf.position, tf.rotation) as GameObject;
-
+				spawnedObject.GetComponent<AiControler> ().Waypoints = waypoint;
 				// Reset timer
 				spawnCountdown = timeBetweenSpawns;
 			}

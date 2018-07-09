@@ -15,7 +15,7 @@ public class PlayArea : MonoBehaviour {
 
 	}
 
-	void OnTriggerExit(Collider Other) {
+	void OnTriggerEnter(Collider Other) {
 		Destroy (Other.gameObject);
 		Debug.Log("Killed");
 	}

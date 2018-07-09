@@ -3,22 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TileManager : MonoBehaviour {
-
+	public GameManager gm;
 	//public List<Room> rooms;
+	public List<GameObject> Tiles;
 	public float TileZWidth;
 	public float TileXWidth;
 
 	public int numberOfCollums;
 	public int numberOfRows;
 
+
 	public List<GameObject> TilePrefabs;
 
 	void Start () {
-		WorldGen ();
+		if (GameManager.instance.seedOfTheDay == true) {
+			Random.InitState (GameManager.instance.seed);
+			WorldGen ();
+		} else if (GameManager.instance.designerSeed == true) {
+			Random.InitState (GameManager.instance.seed);
+			WorldGen ();
+		} else {
+			WorldGen ();
+		}
+
 	}
 
 	void Update () {
-
+		if (gm.player == null) {
+			print ("player?");
+			int rand = Random.Range (0, Tiles.Count);
+			GameObject bob = Tiles [rand];
+			Instantiate (gm.ThePlayer, bob.transform.localPosition, bob.transform.localRotation);
+		}
 	}
 	public void WorldGen () {
 		for (int currentRow = 0; currentRow < numberOfRows; currentRow++) 
@@ -37,6 +53,7 @@ public class TileManager : MonoBehaviour {
 				float Xpos = currentCol *TileXWidth;
 				float Zpos = currentRow * TileZWidth;
 				newTile.transform.localPosition = new Vector3 (Xpos, 0.0f, Zpos);
+				Tiles.Add (newTile);
 			}
 		}
 	}

@@ -111,12 +111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faa0045a41b593645b746f84eb7d8ccb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sullet: {fileID: 0}
   Player: {fileID: 0}
   Enemy: {fileID: 0}
   ShooterStats: {fileID: 0}
   delay: 4
-  speed: 60
+  speed: 1000
+  rb: {fileID: 0}
 --- !u!135 &135998171653614648
 SphereCollider:
   m_ObjectHideFlags: 1
