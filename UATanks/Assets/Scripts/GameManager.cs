@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour {
 
 	}
 	void Start () {
-		
+		if (seedOfTheDay = true) 
+			int n = int.Parse (System.DateTime.Now.ToString ("yyyyMMdd"));
+			seed = n;
+		}
 	}
-}
