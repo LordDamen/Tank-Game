@@ -5,11 +5,11 @@ using UnityEngine;
 public class InputController : MonoBehaviour {
 
 	public TankData pawn;
-	public KeyCode forwardKey = KeyCode.W;
-	public KeyCode turnRightKey = KeyCode.A;
-	public KeyCode turnLeftKey = KeyCode.D;
-	public KeyCode backKey = KeyCode.S;
-	public KeyCode space = KeyCode.Space;
+	public KeyCode forwardKey;
+	public KeyCode turnRightKey;
+	public KeyCode turnLeftKey;
+	public KeyCode backKey;
+	public KeyCode shootKey;
 	[HideInInspector] public bool forward;
 	[HideInInspector] public bool back;
 
@@ -39,7 +39,7 @@ public class InputController : MonoBehaviour {
 			pawn.mover.Turn (1);
 		}
 		// if the spacebar is pressed then it will use the timer and if enough time has passed then they can shoot again.
-		if (Input.GetKey (space)) {
+		if (Input.GetKey (shootKey)) {
 			pawn.shooter.Fire ();
 		}
 	}

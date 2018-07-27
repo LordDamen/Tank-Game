@@ -9,8 +9,8 @@ public class TileManager : MonoBehaviour {
 	public float TileZWidth;
 	public float TileXWidth;
 
-	public int numberOfCollums;
-	public int numberOfRows;
+	private float numberOfCollums;
+	private float numberOfRows;
 
 
 	public List<GameObject> TilePrefabs;
@@ -29,7 +29,8 @@ public class TileManager : MonoBehaviour {
 		} else {
 			WorldGen ();
 		}
-
+		numberOfRows = PlayerPrefs.GetFloat ("currentWidth");
+		numberOfCollums =PlayerPrefs.GetFloat ("currentHeight");
 	}
 
 	void Update () {

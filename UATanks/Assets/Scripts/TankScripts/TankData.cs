@@ -20,6 +20,8 @@ public class TankData : MonoBehaviour {
 	public string bulletTag;
 	public float fleeDistance = 1.0f;
 	public float patrolDelay;
+	public int playerNumber;
+	public int lives;
 	// Other Tank Components
 	[HideInInspector] public TankMover mover;
 	[HideInInspector] public TankShooter shooter;
