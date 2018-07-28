@@ -9,47 +9,51 @@ public class TileManager : MonoBehaviour {
 	public float TileZWidth;
 	public float TileXWidth;
 
-	private float numberOfCollums;
-	private float numberOfRows;
+	public float numberOfCollums;
+	public float numberOfRows;
 
 
 	public List<GameObject> TilePrefabs;
 
-	void Start () {
+	void OnEnable () {
+		numberOfRows = PlayerPrefs.GetFloat ("currentWidth");
+		numberOfCollums = PlayerPrefs.GetFloat ("currentHeight");
         // this is checking if the designer set the level to use the seed of the day
-		if (GameManager.instance.seedOfTheDay == true) {
+		if (GameManager.instance.seedMode == 1) {
             //if it is then we use the seed that is set by the gameManager for the inital state of random
 			Random.InitState (GameManager.instance.seed);
             //then we generate the world
 			WorldGen ();
             // the same is true if the designer just wants to make a set seed function as well
-		} else if (GameManager.instance.designerSeed == true) {
+		} else if (GameManager.instance.seedMode ==2) {
 			Random.InitState (GameManager.instance.seed);
 			WorldGen ();
 		} else {
 			WorldGen ();
 		}
-		numberOfRows = PlayerPrefs.GetFloat ("currentWidth");
-		numberOfCollums =PlayerPrefs.GetFloat ("currentHeight");
 	}
 
 	void Update () {
         // if the player doesnt exist then we will choose a random tile and generate him on that tile
 		if (gm.player == null) {
-			int rand = Random.Range (0, Tiles.Count);
+			int rand = Mathf.RoundToInt(Random.Range (0, Tiles.Count));
 			GameObject bob = Tiles [rand];
 			Instantiate (gm.ThePlayer, bob.transform.localPosition, bob.transform.localRotation);
+			if (gm.player2 == null) {
+				int rad = Mathf.RoundToInt(Random.Range (0, Tiles.Count));
+				GameObject bo = Tiles [rand];
+				Instantiate (gm.ThePlayer, bob.transform.localPosition, bob.transform.localRotation);
 		}
 	}
 	public void WorldGen () {
         // for the current row repeat inside until the rows have been reached
-		for (int currentRow = 0; currentRow < numberOfRows; currentRow++) 
+		for (float currentRow = 0; currentRow < numberOfRows; currentRow++) 
 		{
             // then do the same for collums
-			for (int currentCol = 0; currentCol < numberOfCollums; currentCol++) 
+			for (float currentCol = 0; currentCol < numberOfCollums; currentCol++) 
 			{
 				// start generating random tiles
-				int rand = Random.Range(0, TilePrefabs.Count);
+				int rand = Mathf.RoundToInt(Random.Range(0, TilePrefabs.Count));
 				GameObject newTile = Instantiate(TilePrefabs[rand]) as GameObject;
 				//now to give it a name
 				newTile.name = "Tile (" + currentCol + "," + currentRow + ")";

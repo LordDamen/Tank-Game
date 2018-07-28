@@ -12,8 +12,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> waypoints;
     public TileManager Tm;
     public int seed;
-    public bool designerSeed;
-    public bool seedOfTheDay;
+	public int seedMode;
     // Use this for initialization
     // check if it exitsts if it does then destroy and this is the new one
     void Awake()
@@ -31,10 +30,18 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        if (seedOfTheDay == true)
-        {
-            int n = int.Parse(System.DateTime.Now.ToString("yyyyMMdd"));
-            seed = n;
-        }
+        
     }
+	void Update () {
+		seedMode = PlayerPrefs.GetInt ("setSeedMode");
+		if (seedMode == 1) {
+				int n = int.Parse (System.DateTime.Now.ToString ("yyyyMMdd"));
+				seed = n;
+
+		} else if (seedMode == 2) {
+			seed = int.Parse (PlayerPrefs.GetString ("customSeed"));
+
+		}
+	}
 }
+

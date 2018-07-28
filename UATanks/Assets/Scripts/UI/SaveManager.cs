@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour {
 
-	void awake () {
+	void Awake () {
 		if (!PlayerPrefs.HasKey ("highScore")) {
 			PlayerPrefs.SetInt ("highscore", 0);
 		}
@@ -12,7 +12,7 @@ public class SaveManager : MonoBehaviour {
 			PlayerPrefs.SetInt ("setSeedMode", 0);
 		}
 		if (!PlayerPrefs.HasKey ("customSeed")) {
-			PlayerPrefs.SetInt ("customSeed", "0");
+			PlayerPrefs.SetString ("customSeed", "0");
 		}
 		if (!PlayerPrefs.HasKey ("playerNum")) {
 			PlayerPrefs.SetInt ("playerNum", 0);
@@ -29,6 +29,8 @@ public class SaveManager : MonoBehaviour {
 		if (!PlayerPrefs.HasKey ("sfxVolume")) {
 			PlayerPrefs.SetInt ("sfxVolume", 100);
 		}
+		PlayerPrefs.SetInt ("PlayerOneLives",3);
+		PlayerPrefs.SetInt ("PlayerTwoLives",3);
 		PlayerPrefs.SetInt ("tempScoreOne",0);
 		PlayerPrefs.SetInt ("tempScoreTwo", 0);
 	}

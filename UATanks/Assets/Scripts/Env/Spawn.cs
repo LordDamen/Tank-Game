@@ -15,9 +15,7 @@ public class Spawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		tf = GetComponent<Transform>();
-		if (GameManager.instance.seedOfTheDay == true) {
-			Random.InitState (GameManager.instance.seed);
-		} else if (GameManager.instance.designerSeed == true) {
+		if (GameManager.instance.seedMode !=0 ) {
 			Random.InitState (GameManager.instance.seed);
 		}
 		rand = Random.Range (0, EnemyToSpawn.Count);

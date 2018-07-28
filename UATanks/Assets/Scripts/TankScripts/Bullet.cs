@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
 	public TankData Player;
 	public TankData Enemy;
+	public TileManager Tm;
+	public GameManager gm;
 	[HideInInspector] public TankData ShooterStats;
 	public float delay;
 	public float speed;
@@ -39,6 +41,7 @@ public class Bullet : MonoBehaviour {
 			Enemy.health -= ShooterStats.PlayerDmg;
 			// if health is less than 0 destroy the object that it hit
 			if (Enemy.health <= 0) {
+				Player.score += 10;
 				Destroy (Other.gameObject);
 			}
 		}
@@ -51,7 +54,10 @@ public class Bullet : MonoBehaviour {
 			Player.health -= ShooterStats.PlayerDmg;
 			// if health is less than 0 destroy the object that it hit
 			if (Player.health <= 0) {
-				Destroy (Other.gameObject);
+				int rand = Mathf.RoundToInt(Random.Range (0, Tm.Tiles.Count));
+				GameObject bob = Tm.Tiles [rand];
+				Player.transform.localPosition = bob.transform.localPosition;
+				Player.lives--;
 			}
 		}
 		Destroy (gameObject);
