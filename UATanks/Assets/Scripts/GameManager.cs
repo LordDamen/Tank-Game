@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     // this is the player instance
     public InputController player;
+    public InputController player2;
     public GameObject ThePlayer;
     public List<GameObject> waypoints;
     public TileManager Tm;
