@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayArea : MonoBehaviour {
-
+	public TileManager Tm;
+	public GameManager gm;
+	public TankData Player;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,7 +18,9 @@ public class PlayArea : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider Other) {
-		Destroy (Other.gameObject);
-		Debug.Log("Killed");
+		int rand = Mathf.RoundToInt(Random.Range (0, Tm.Tiles.Count));
+		GameObject bob = Tm.Tiles [rand];
+		Player = Other.GetComponent<TankData> ();
+		Player.transform.localPosition = bob.transform.localPosition;
 	}
 }

@@ -58,12 +58,18 @@
      <Compile Include="Assets\Scripts\Env\TileManager.cs" />
      <Compile Include="Assets\Scripts\Env\Walls.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\GameOver.cs" />
+     <Compile Include="Assets\Scripts\InptCtn2.cs" />
      <Compile Include="Assets\Scripts\InputController.cs" />
+     <Compile Include="Assets\Scripts\MusicVolume.cs" />
+     <Compile Include="Assets\Scripts\sfxVolume.cs" />
      <Compile Include="Assets\Scripts\SwitchSeens.cs" />
      <Compile Include="Assets\Scripts\TankScripts\Bullet.cs" />
      <Compile Include="Assets\Scripts\TankScripts\TankData.cs" />
      <Compile Include="Assets\Scripts\TankScripts\TankMover.cs" />
      <Compile Include="Assets\Scripts\TankScripts\TankShooter.cs" />
+     <Compile Include="Assets\Scripts\UI\ButtonClick.cs" />
+     <Compile Include="Assets\Scripts\UI\CameraResize.cs" />
      <Compile Include="Assets\Scripts\UI\EndScreen.cs" />
      <Compile Include="Assets\Scripts\UI\IntSettings.cs" />
      <Compile Include="Assets\Scripts\UI\mainScore.cs" />
@@ -76,7 +82,7 @@
      <Compile Include="Assets\Scripts\UI\SliderText.cs" />
      <Compile Include="Assets\Scripts\UI\swaper.cs" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/benchout/Documents/GitHub/Tank-Game/UATanks/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/benchout/Desktop/Tank-Game-51d1f7056add15414fe6bbb0306ecb391b6ac965/UATanks/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="Vuforia.UnityExtensions.Editor">
  <HintPath>C:/Program Files/Unity201730f3/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>

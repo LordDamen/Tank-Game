@@ -11,6 +11,7 @@ public class PowerUpManager : MonoBehaviour {
 	public GameObject objectToSpawn;
 	public int rand;
 	public bool CollectedPUP;
+	public AudioSource soundToMake;
 	// Use this for initialization
 	void Start () {
 		thePower = gameObject;
@@ -35,7 +36,7 @@ public class PowerUpManager : MonoBehaviour {
 			// Reset timer
 			RespawnTime = powerupRespawnTImer;
 		}
-
+		soundToMake.volume = PlayerPrefs.GetFloat ("sfxVolume");
 	}
 	void OnCollisionEnter (Collision Other) {
         // this checks for if the bullet if hitting it and if it does then it ignores it 
@@ -45,19 +46,20 @@ public class PowerUpManager : MonoBehaviour {
 			if (thePower.name == "FireRate") {
 				Other.gameObject.GetComponent<TankData>().delay = -2;
 				this.transform.localPosition = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y-5);
-                print("test");
+				soundToMake.Play ();
+
             }
 
 			if (thePower.name == "SpeedBoost") {
 				Other.gameObject.GetComponent<TankData>().moveSpeed += 10;
 				Other.gameObject.GetComponent<TankData>().turnSpeed += 10;
 				this.transform.localPosition = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y-5);
-                print("test");
+				soundToMake.Play ();
             }
 			if (thePower.name == "HealthBoost") {
 				Other.gameObject.GetComponent<TankData>().health += 10;
 				this.transform.localPosition = new Vector3 (this.transform.localPosition.x, this.transform.localPosition.y-5);
-                print("test");
+				soundToMake.Play ();
 			}
             // tells the game that you collected a powerup to start the respawn timer
 			CollectedPUP = true;

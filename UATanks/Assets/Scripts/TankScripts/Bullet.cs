@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour {
 	public float delay;
 	public float speed;
 	public Rigidbody rb;
+	public AudioClip deathSound;
 	[HideInInspector] private bool JustFired;
 	// Use this for initialization
 	void Start () {
@@ -27,7 +28,7 @@ public class Bullet : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// setting the inital velocity
-
+		AudioListener.volume = PlayerPrefs.GetFloat("sfxVolume");
 
 
 	
@@ -47,7 +48,7 @@ public class Bullet : MonoBehaviour {
 		}
 		// this is checking if the thing shot is tagged as a player
 	
-		if (Other.gameObject.tag == "Player") {
+		if (Other.gameObject.tag == "player") {
 			// this then gets the stats of the enemy
 			Player = Other.gameObject.GetComponent<TankData> ();
 			// then it deals the assigned damage
@@ -57,6 +58,7 @@ public class Bullet : MonoBehaviour {
 				int rand = Mathf.RoundToInt(Random.Range (0, Tm.Tiles.Count));
 				GameObject bob = Tm.Tiles [rand];
 				Player.transform.localPosition = bob.transform.localPosition;
+
 				Player.lives--;
 			}
 		}
@@ -70,5 +72,9 @@ public class Bullet : MonoBehaviour {
 			JustFired = false;
 		}
 	}
+	void MakeSoundSound()
+	{
+		AudioSource.PlayClipAtPoint(deathSound, gameObject.transform.position);
 
+	}
 }

@@ -1,25 +1,24 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Env\TileManager.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\TankScripts\Bullet.cs">
     <Files>
-      <File FileName="Assets\Scripts\Env\Spawn.cs" Line="20" Column="4" />
+      <File FileName="Assets\Scripts\Env\Spawn.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\ScoreManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TankScripts\TankData.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\SaveManager.cs" Line="33" Column="33" />
-      <File FileName="Assets\Scripts\UI\IntSettings.cs" Line="23" Column="54" />
+      <File FileName="Assets\Scripts\UI\SaveManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\IntSettings.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\InputController.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\resetButton.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\UI\SaveData.cs" Line="33" Column="1" />
-      <File FileName="Assets\Scripts\SwitchSeens.cs" Line="7" Column="8" />
-      <File FileName="Assets\Scripts\UI\EndScreen.cs" Line="19" Column="84" />
-      <File FileName="Assets\Scripts\UI\multiDisable.cs" Line="14" Column="38" />
-      <File FileName="Assets\Scripts\UI\SliderText.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\SaveData.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\SwitchSeens.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\EndScreen.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\UI\multiDisable.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\mainScore.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\UI\quit.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\GameManager.cs" Line="15" Column="8" />
-      <File FileName="Assets\Scripts\Env\TileManager.cs" Line="43" Column="11" />
+      <File FileName="Assets\Scripts\GameManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Env\TileManager.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\TankScripts\Bullet.cs" Line="57" Column="1" />
-      <File FileName="Assets\Scripts\UI\swaper.cs" Line="13" Column="41" />
+      <File FileName="Assets\Scripts\UI\swaper.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

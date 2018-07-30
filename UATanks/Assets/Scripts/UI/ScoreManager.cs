@@ -11,6 +11,7 @@ public class ScoreManager : MonoBehaviour {
 	public Text deathText;
 	private float playerNumberModifer;
 	private int ActualPlayer;
+	public AudioSource GameOver;
 	// Use this for initialization
 	void Start () {
 		deathText = GameObject.Find ("Death p" + ActualPlayer).GetComponent<Text> ();
@@ -23,21 +24,29 @@ public class ScoreManager : MonoBehaviour {
 			scoreText.text = "" + data.score;
 			healthText.text = "Health: " + data.health;
 			livesText.text = "Lives: " + data.lives; 
+
+		} else {
+			deathText.transform.position = new Vector3 (Screen.width * -1, Screen.height * -1);
+			data.moveSpeed = 0;
+			data.delay = 100000;
+			GameOver.Play();
 		}
+		GameOver.volume = PlayerPrefs.GetFloat ("sfxVolume");
 	}
 	void OnEnable() {
 		data = GetComponent<TankData> ();
-		ActualPlayer = data.playerNumber + 1;
+		ActualPlayer = data.playerNumber;
 		scoreText = GameObject.Find ("Score p" + ActualPlayer).GetComponent<Text> ();
 		healthText = GameObject.Find ("Health p" + ActualPlayer).GetComponent<Text> ();
 		livesText = GameObject.Find ("Lives p" + ActualPlayer).GetComponent<Text> ();
+		ActualPlayer = data.playerNumber-1;
 		int numberOfPlayers = PlayerPrefs.GetInt ("playerNum");
 		if (numberOfPlayers == 0) {
 			scoreText.transform.position = new Vector3 (Screen.width - 90.0f, Screen.height - 20.0f, 1);
 			healthText.transform.position = new Vector3 (90.0f, Screen.height - 20.0f, 1);
 			livesText.transform.position = new Vector3 (90.0f, Screen.height - 40.0f, 1);
 		} else {
-			playerNumberModifer = data.playerNumber * 0.5f;
+			playerNumberModifer = data.playerNumber * .5f;
 			scoreText.transform.position = new Vector3 (Screen.width *playerNumberModifer+Screen.width *0.5f -90.0f, Screen.height - 20.0f, 1);
 			healthText.transform.position = new Vector3 (Screen.width *playerNumberModifer+90.0f, Screen.height  - 20.0f, 1);
 			livesText.transform.position = new Vector3 (Screen.width *playerNumberModifer+90.0f, Screen.height - 40.0f, 1);

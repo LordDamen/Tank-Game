@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class Volume : MonoBehaviour {
+public class MusicVolume : MonoBehaviour {
     public AudioSource sound;
     // Use this for initialization
     private void Awake()
@@ -15,6 +15,6 @@ public class Volume : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
 	}
 }

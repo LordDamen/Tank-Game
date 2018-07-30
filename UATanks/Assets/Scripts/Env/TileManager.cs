@@ -33,22 +33,19 @@ public class TileManager : MonoBehaviour {
 		}
 	}
 
-    void Update()
-    {
+	void Update () {
         // if the player doesnt exist then we will choose a random tile and generate him on that tile
-        if (gm.player == null)
-        {
-            int rand = Mathf.RoundToInt(Random.Range(0, Tiles.Count));
-            GameObject bob = Tiles[rand];
-            Instantiate(gm.ThePlayer, bob.transform.localPosition, bob.transform.localRotation);
-            if (gm.player2 == null&& PlayerPrefs.GetInt("playerNum") >1)
-            {
-                int rad = Mathf.RoundToInt(Random.Range(0, Tiles.Count));
-                GameObject bo = Tiles[rand];
-                Instantiate(gm.ThePlayer, bob.transform.localPosition, bob.transform.localRotation);
-            }
-        }
-    }
+		if (gm.player == null) {
+			int rand = Mathf.RoundToInt(Random.Range (0, Tiles.Count));
+			GameObject bob = Tiles [rand];
+			Instantiate (gm.ThePlayer, bob.transform.localPosition, bob.transform.localRotation);
+			if (gm.player2 == null&& PlayerPrefs.GetInt("playerNum") >0) {
+				int rad = Mathf.RoundToInt(Random.Range (0, Tiles.Count));
+				GameObject bo = Tiles [rand];
+				Instantiate (gm.ThePlayer2, bo.transform.localPosition, bo.transform.localRotation);
+			}
+		}
+	}
 	public void WorldGen () {
         // for the current row repeat inside until the rows have been reached
 		for (float currentRow = 0; currentRow < numberOfRows; currentRow++) 
@@ -72,4 +69,5 @@ public class TileManager : MonoBehaviour {
 			}
 		}
 	}
+
 }

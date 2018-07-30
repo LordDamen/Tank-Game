@@ -15,17 +15,19 @@ public class ButtonClick : MonoBehaviour
         for (var i = 0; i < buttonList.Count; i++)
         {
             buttonList[i].onClick.AddListener(buttonSound);
+			AudioListener.volume = PlayerPrefs.GetFloat ("sfxVolume");
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+		AudioListener.volume = PlayerPrefs.GetFloat ("sfxVolume");
     }
 
     void buttonSound()
     {
         AudioSource.PlayClipAtPoint(clickSound, gameObject.transform.position);
+	
     }
 }
