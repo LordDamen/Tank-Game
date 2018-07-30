@@ -182,7 +182,7 @@ MonoBehaviour:
   objectToSpawn: {fileID: 0}
   rand: 0
   CollectedPUP: 0
-  soundToMake: {fileID: 0}
+  soundToMake: {fileID: 82254047006292524}
 --- !u!136 &136944443057823466
 CapsuleCollider:
   m_ObjectHideFlags: 1

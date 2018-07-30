@@ -292,11 +292,32 @@
     <Compile Include="Assets\Scripts\Env\TileManager.cs" />
     <Compile Include="Assets\Scripts\Env\Walls.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameOver.cs" />
+    <Compile Include="Assets\Scripts\InptCtn2.cs" />
     <Compile Include="Assets\Scripts\InputController.cs" />
+    <Compile Include="Assets\Scripts\MusicVolume.cs" />
+    <Compile Include="Assets\Scripts\sfxVolume.cs" />
+    <Compile Include="Assets\Scripts\SwitchSeens.cs" />
     <Compile Include="Assets\Scripts\TankScripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\TankScripts\TankData.cs" />
     <Compile Include="Assets\Scripts\TankScripts\TankMover.cs" />
     <Compile Include="Assets\Scripts\TankScripts\TankShooter.cs" />
+    <Compile Include="Assets\Scripts\UI\ButtonClick.cs" />
+    <Compile Include="Assets\Scripts\UI\CameraResize.cs" />
+    <Compile Include="Assets\Scripts\UI\EndScreen.cs" />
+    <Compile Include="Assets\Scripts\UI\IntSettings.cs" />
+    <Compile Include="Assets\Scripts\UI\mainScore.cs" />
+    <Compile Include="Assets\Scripts\UI\multiDisable.cs" />
+    <Compile Include="Assets\Scripts\UI\quit.cs" />
+    <Compile Include="Assets\Scripts\UI\resetButton.cs" />
+    <Compile Include="Assets\Scripts\UI\SaveData.cs" />
+    <Compile Include="Assets\Scripts\UI\SaveManager.cs" />
+    <Compile Include="Assets\Scripts\UI\ScoreManager.cs" />
+    <Compile Include="Assets\Scripts\UI\SliderText.cs" />
+    <Compile Include="Assets\Scripts\UI\swaper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\Sounds\where i got the sounds.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

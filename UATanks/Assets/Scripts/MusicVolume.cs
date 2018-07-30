@@ -15,6 +15,6 @@ public class MusicVolume : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
+		AudioListener.volume = PlayerPrefs.GetFloat("musicVolume")/100;
 	}
 }
