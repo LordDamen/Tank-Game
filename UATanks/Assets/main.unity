@@ -834,7 +834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &161170752
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3449,6 +3449,7 @@ GameObject:
   m_Component:
   - component: {fileID: 983924626}
   - component: {fileID: 983924625}
+  - component: {fileID: 983924627}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -3489,6 +3490,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &983924627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 983924624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca91813b4b8f0174297e1a97626edfdd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &989897631
 GameObject:
   m_ObjectHideFlags: 0
@@ -5069,7 +5081,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1380650590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7928,9 +7940,9 @@ MonoBehaviour:
   numberOfCollums: 0
   numberOfRows: 0
   TilePrefabs:
-  - {fileID: 1744505473011174, guid: bbbb3a3c4f1cd19488dd02a7e1def717, type: 2}
-  - {fileID: 1229360298688248, guid: 7c7937ba15939734a8813892a840e63a, type: 2}
-  - {fileID: 1404373870664070, guid: ebab359fd6ed9c7488a7437da6156f82, type: 2}
+  - {fileID: 1007713255504856, guid: 76375eb67f9f24e4db9e1d5fa40c5537, type: 2}
+  - {fileID: 1689860159218546, guid: ebab359fd6ed9c7488a7437da6156f82, type: 2}
+  - {fileID: 1975978248826268, guid: 625edfd6837b5c24c94374373a23b1ab, type: 2}
 --- !u!4 &1979962559
 Transform:
   m_ObjectHideFlags: 0
@@ -8552,7 +8564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2057141466
 Transform:
   m_ObjectHideFlags: 0

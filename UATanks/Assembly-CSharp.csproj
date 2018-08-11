@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\AiControler.cs" />
      <Compile Include="Assets\Scripts\Env\PlayArea.cs" />
+     <Compile Include="Assets\Scripts\Env\Power.cs" />
      <Compile Include="Assets\Scripts\Env\PowerUpManager.cs" />
      <Compile Include="Assets\Scripts\Env\Spawn.cs" />
      <Compile Include="Assets\Scripts\Env\TileManager.cs" />
@@ -81,8 +82,9 @@
      <Compile Include="Assets\Scripts\UI\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\UI\SliderText.cs" />
      <Compile Include="Assets\Scripts\UI\swaper.cs" />
+     <None Include="Assets\Sounds\where i got the sounds.txt" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/benchout/Desktop/Tank-Game-51d1f7056add15414fe6bbb0306ecb391b6ac965/UATanks/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/benchout/Documents/GitHub/Tank-Game/UATanks/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="Vuforia.UnityExtensions.Editor">
  <HintPath>C:/Program Files/Unity201730f3/Editor/Data/PlaybackEngines/VuforiaSupport/Managed/Editor/Vuforia.UnityExtensions.Editor.dll</HintPath>

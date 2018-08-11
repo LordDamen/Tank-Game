@@ -9,47 +9,47 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1581826913277856}
+  m_RootGameObject: {fileID: 1247830740334678}
   m_IsPrefabParent: 1
---- !u!1 &1581826913277856
+--- !u!1 &1247830740334678
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4510765012015572}
-  - component: {fileID: 33681413641814738}
-  - component: {fileID: 136256433820157770}
-  - component: {fileID: 23946159956939580}
-  - component: {fileID: 114064850562711598}
-  - component: {fileID: 82179530212359630}
+  - component: {fileID: 4278757758837826}
+  - component: {fileID: 33710127934754852}
+  - component: {fileID: 136944443057823466}
+  - component: {fileID: 23981265748110162}
+  - component: {fileID: 82254047006292524}
+  - component: {fileID: 114416056864047972}
   m_Layer: 0
-  m_Name: SpeedBoost
-  m_TagString: Untagged
+  m_Name: Health
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4510765012015572
+--- !u!4 &4278757758837826
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581826913277856}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5299902, y: 0.25, z: 0.24345279}
-  m_LocalScale: {x: 0.083333336, y: 0.25, z: 0.083333336}
+  m_GameObject: {fileID: 1247830740334678}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23946159956939580
+--- !u!23 &23981265748110162
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581826913277856}
+  m_GameObject: {fileID: 1247830740334678}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,7 +58,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: ce480fe58b98ea145a12bf4b69eedc53, type: 2}
+  - {fileID: 2100000, guid: dd6d9bac0c71195479af54e1db0d691e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,19 +78,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33681413641814738
+--- !u!33 &33710127934754852
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581826913277856}
+  m_GameObject: {fileID: 1247830740334678}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!82 &82179530212359630
+--- !u!82 &82254047006292524
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581826913277856}
+  m_GameObject: {fileID: 1247830740334678}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -165,30 +165,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114064850562711598
+--- !u!114 &114416056864047972
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581826913277856}
+  m_GameObject: {fileID: 1247830740334678}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eedbef6c684e3ef478c26adf2ed34cd8, type: 3}
+  m_Script: {fileID: 11500000, guid: 7da992aa8bc57ec458e6d9e594c80298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUps: []
-  powerupRespawnTImer: 0
-  thePower: {fileID: 1581826913277856}
-  objectToSpawn: {fileID: 0}
-  rand: 0
-  CollectedPUP: 0
-  soundToMake: {fileID: 82179530212359630}
---- !u!136 &136256433820157770
+  data: {fileID: 0}
+  respawnDelay: 10
+  powUpSound: {fileID: 8300000, guid: 6293dca93b0208343940c7fb250a1bdc, type: 3}
+--- !u!136 &136944443057823466
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1581826913277856}
+  m_GameObject: {fileID: 1247830740334678}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1

@@ -14,8 +14,7 @@ public class ScoreManager : MonoBehaviour {
 	public AudioSource GameOver;
 	// Use this for initialization
 	void Start () {
-		deathText = GameObject.Find ("Death p" + ActualPlayer).GetComponent<Text> ();
-		deathText.transform.position = new Vector3 (Screen.width * -1, Screen.height * -1);
+		
 	}
 	
 	// Update is called once per frame
@@ -36,10 +35,12 @@ public class ScoreManager : MonoBehaviour {
 	void OnEnable() {
 		data = GetComponent<TankData> ();
 		ActualPlayer = data.playerNumber;
+		deathText = GameObject.Find ("Death p" + ActualPlayer).GetComponent<Text> ();
+		deathText.transform.position = new Vector3 (Screen.width * -1, Screen.height * -1);
 		scoreText = GameObject.Find ("Score p" + ActualPlayer).GetComponent<Text> ();
 		healthText = GameObject.Find ("Health p" + ActualPlayer).GetComponent<Text> ();
 		livesText = GameObject.Find ("Lives p" + ActualPlayer).GetComponent<Text> ();
-		ActualPlayer = data.playerNumber-1;
+
 		int numberOfPlayers = PlayerPrefs.GetInt ("playerNum");
 		if (numberOfPlayers == 0) {
 			scoreText.transform.position = new Vector3 (Screen.width - 90.0f, Screen.height - 20.0f, 1);
