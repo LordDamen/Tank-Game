@@ -7,7 +7,7 @@ public class MusicVolume : MonoBehaviour {
     // Use this for initialization
     private void Awake()
     {
-        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
+        
     }
     void Start () {
         sound.Play();
@@ -15,6 +15,6 @@ public class MusicVolume : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		AudioListener.volume = PlayerPrefs.GetFloat("musicVolume")/100;
-	}
+        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume")/100;
+    }
 }

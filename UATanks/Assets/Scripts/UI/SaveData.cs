@@ -12,8 +12,7 @@ public class SaveData : MonoBehaviour {
 	public Slider sfxSlider;
 	public Dropdown amountOfPlayers;
 
-	public AudioSource menuMusic;
-	public AudioSource gameMusic;
+	
 	// Use this for initialization
 	void Start () {
 		SaveButton.onClick.AddListener (SaveSettings);
@@ -26,7 +25,7 @@ public class SaveData : MonoBehaviour {
 		PlayerPrefs.SetFloat ("currentHeight", HeightSlider.value);
 		PlayerPrefs.SetFloat ("musicVolume", musicSlider.value);
 		PlayerPrefs.SetFloat ("sfxVolume", sfxSlider.value);
-		menuMusic.volume = PlayerPrefs.GetFloat ("musicVolume") / 100;
-		gameMusic.volume = PlayerPrefs.GetFloat ("musicVolume") / 100;
+		GameManager.instance.musicSource.volume = PlayerPrefs.GetFloat ("musicVolume") / 100f;
+		
 	}
 }

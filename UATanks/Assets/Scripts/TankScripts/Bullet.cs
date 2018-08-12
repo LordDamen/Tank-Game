@@ -42,13 +42,14 @@ public class Bullet : MonoBehaviour {
 			Enemy.health -= ShooterStats.PlayerDmg;
 			// if health is less than 0 destroy the object that it hit
 			if (Enemy.health <= 0) {
+                print("killed");
 				Player.score += 10;
 				Destroy (Other.gameObject);
 			}
 		}
 		// this is checking if the thing shot is tagged as a player
 	
-		if (Other.gameObject.tag == "player") {
+		if (Other.gameObject.tag == "Player") {
 			// this then gets the stats of the enemy
 			Player = Other.gameObject.GetComponent<TankData> ();
 			// then it deals the assigned damage

@@ -47,7 +47,7 @@ public class ScoreManager : MonoBehaviour {
 			healthText.transform.position = new Vector3 (90.0f, Screen.height - 20.0f, 1);
 			livesText.transform.position = new Vector3 (90.0f, Screen.height - 40.0f, 1);
 		} else {
-			playerNumberModifer = data.playerNumber * .5f;
+			playerNumberModifer = (data.playerNumber-1) * .5f;
 			scoreText.transform.position = new Vector3 (Screen.width *playerNumberModifer+Screen.width *0.5f -90.0f, Screen.height - 20.0f, 1);
 			healthText.transform.position = new Vector3 (Screen.width *playerNumberModifer+90.0f, Screen.height  - 20.0f, 1);
 			livesText.transform.position = new Vector3 (Screen.width *playerNumberModifer+90.0f, Screen.height - 40.0f, 1);

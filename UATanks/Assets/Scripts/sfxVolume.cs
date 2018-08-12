@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class sfxVolume : MonoBehaviour {
+public class SfxVolume : MonoBehaviour {
     public AudioSource sound;
     // Use this for initialization
     private void Awake()
     {
-        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
+        
     }
     // Use this for initialization
     void Start () {
@@ -15,6 +15,6 @@ public class sfxVolume : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+        AudioListener.volume = PlayerPrefs.GetFloat("musicVolume")/100;
+    }
 }

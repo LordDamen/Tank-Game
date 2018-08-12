@@ -287,6 +287,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AiControler.cs" />
     <Compile Include="Assets\Scripts\Env\PlayArea.cs" />
+    <Compile Include="Assets\Scripts\Env\Power.cs" />
     <Compile Include="Assets\Scripts\Env\PowerUpManager.cs" />
     <Compile Include="Assets\Scripts\Env\Spawn.cs" />
     <Compile Include="Assets\Scripts\Env\TileManager.cs" />

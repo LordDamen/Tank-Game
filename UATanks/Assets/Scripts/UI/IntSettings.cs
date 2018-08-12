@@ -15,9 +15,9 @@ public class IntSettings : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		optionsButton.onClick.AddListener (intalSettings);
+		optionsButton.onClick.AddListener (IntalSettings);
 	}
-	void intalSettings () {
+	void IntalSettings () {
 		widthSlider.value = PlayerPrefs.GetFloat ("currentWidth");
 		HeightSlider.value = PlayerPrefs.GetFloat ("currentHeight");
 		seedInput.text = PlayerPrefs.GetString ("customSeed");

@@ -30,7 +30,7 @@ public class CameraResize : MonoBehaviour {
         }
         else
         {
-            playerCam.rect = new Rect(0.5f * Data.playerNumber, 0.0f, 0.5f, 1.0f);
+            playerCam.rect = new Rect(0.5f * (Data.playerNumber-1), 0.0f, 0.5f, 1.0f);
         }
     }
 }
